@@ -1,0 +1,32 @@
+<div id="left" class="span-8">
+  <fieldset>
+    <legend>Submit a new work to test it's fair use!</legend>
+  <% form_for @work do |f| %> 
+  
+  
+   name of work:<br / >
+   <div><%= f.text_field :name, :size=>30 %> </div>
+   <br / >
+   
+  
+   url:  <br / >
+   <div><%= f.text_field :url, :size=>30 %> </div>
+  <br / >
+  
+  
+  
+   Your name: <br / > 
+   <div><%= f.text_field :submitter, :size=>30 %> </div>
+   <br / >
+  
+  
+  <p> 
+  <button type="submit" class="button positive">
+  	  <img src="css/blueprint/plugins/buttons/icons/tick.png" alt=""/> Save
+  </button>
+  </p> 
+  <% end %> 
+  </fieldset>
+</div>
+<div id="right" class="span-16">
+</div>

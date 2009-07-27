@@ -1,0 +1,47 @@
+<div class = "span-12">
+  <h1><%=link_to @work.name, @work.url %></h1>
+  <h3>fair use score: xx%</h3>
+  <p>Number of Surveys completed for this item: <%= @work.results.count %> </p>
+</div>
+<div class="span-12 last">
+  <h3><%= link_to 'Assess Fair Use =>', new_work_result_path(@work)  %></h3>
+</div>
+
+<div clas = "span-2">
+</div>
+  
+<div id = "center" class= "span-20">
+
+  <% if @work.results.empty? %>
+  <em>No Results for this work yet!</em>
+  <% else %>
+  
+  
+  <table id = "hor-minimalist-a" summary="results for this work">
+    <thead>
+      <tr>
+        <th scope = "col">id</th>
+        <th scope = "col">q 1</th>
+        <th scope = "col">q 2</th>
+        <th scope = "col">q 3</th>
+        <th scope = "col">q 4</th>
+        <th scope = "col">q 5</th>
+        <th scope = "col">q 6</th>
+        <th scope = "col">created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => 'results/result',
+      :collection => @work.results.all %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class=  "span-2 last">
+</div>
+
+<p>
+
+</p>
+

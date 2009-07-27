@@ -1,0 +1,54 @@
+
+<div id="survey">
+<% form_for :result, @result, :url => { :action => "create" } do |f| %>
+
+<h3>1. Purpose of the new work</h3>
+<ul>
+  <li><%= radio_button("result", "q1", "1")%>Criticism</li>
+  <li><%= radio_button("result", "q1", "2")%>Commentary</li>
+  <li><%= radio_button("result", "q1", "3")%>News Reporting</li>
+  <li><%= radio_button("result", "q1", "4")%>Teaching</li>
+  <li><%= radio_button("result", "q1", "5")%>Scholarship</li>
+  <li><%= radio_button("result", "q1", "6")%>Research</li>
+  <li><%= radio_button("result", "q1", "7")%>Personal Copy</li>
+  <li><%= radio_button("result", "q1", "8")%>Other</li>
+
+</ul>
+
+<h3>2. Character of the new work</h3>
+<ul>
+  <li><%= radio_button("result", "q2", "1")%>Commercial</li>
+  <li><%= radio_button("result", "q2", "2")%>Non-Commercial</li>
+</ul>
+
+<h3>3. Use of the original work in new work</h3>
+<ul>
+  <li><%= radio_button("result", "q3", "1")%>Transformation</li>
+  <li><%= radio_button("result", "q3", "2")%>Parody</li>
+  <li><%= radio_button("result", "q3", "3")%>Neither Transformation nor Parody</li>
+</ul>
+
+<h3>4. Nature of the original copyrighted work</h3>
+<ul>
+  <li><%= radio_button("result", "q4", "1")%>Published</li>
+  <li><%= radio_button("result", "q4", "2")%>Unpublished</li>
+  <li><%= radio_button("result", "q4", "3")%>Creative</li>
+  <li><%= radio_button("result", "q4", "4")%>Not Creative</li>
+</ul>
+
+<h3>5. Amount of the original work being used in new work</h3>
+<ul>
+  <li><%= radio_button("result", "q5", "1")%>Most of it</li>
+  <li><%= radio_button("result", "q5", "2")%>Just the essential parts</li>
+  <li><%= radio_button("result", "q5", "3")%>Most of it and the essential parts</li>
+  <li><%= radio_button("result", "q5", "4")%>Neither most of the copyrighted work nor the essential parts</li>
+</ul>
+
+<h3>6. Financial impact of new work</h3>
+<ul>
+  <li><%= radio_button("result", "q6", "1")%>Damages a current or potential market for original copyrighted work</li>
+  <li><%= radio_button("result", "q6", "2s")%>Does not current or potential market for original copyrighted work</li>
+</ul>
+  <%= submit_tag 'Is it fair use ma?!' %>
+<% end %>
+</div>
