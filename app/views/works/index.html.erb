@@ -1,3 +1,6 @@
-<em><h4>Works posted so far:</h4></em>
-
+<h2><%= Work.count %> Works posted so far:</h2>
 <%= render :partial => 'work', :collection => @works %> 
+
+<div id="pagination" class="span-24 last">
+  <%= will_paginate @works %>
+</div>

@@ -3,6 +3,7 @@ body {
  margin: 15px 25px; 
  font-family: Helvetica, Arial, sans-serif; 
 	width:950px;
+	margin:auto;
 } 
 li{
 	list-style:none;
@@ -12,75 +13,147 @@ li{
  border: 10px solid steelBlue; 
  padding: 10px 10px 20px 10px; 
  overflow: hidden; 
+ width:950px;
 } 
 * html #content { 
  height: 1%; 
 }
 
-#top-title{
-	padding-bottom:0px;
-	margin-bottom:0px;
+#top_title{
+	margin: 0;
+	text-align: center;
 }
+#top_title h1 {
+    margin-bottom: .1em;
+}
+#top_title h1 a{
+  color:white;
+
+  text-decoration:none;
+}
+#user_nav {
+	float:right;
+	font-size:12px;
+	padding-bottom:10px;
+}
+#work_info {
+  padding-bottom:10px;
+}
+
+#navigation { 
+ list-style: none; 
+ padding: 5px 0; 
+ margin: 0; 
+ text-align: center; 
+ font-size: large;
+ color:white;
+}
+
 #navigation li {
  display: inline;
  padding: 0 5px;
+ font-size: x-large;
 }
- 
+
 #navigation li a {
  color: #fff;
+ 
+ text-decoration:none;
 }
+
+#navigation li a:hover {
+  text-decoration:underline;
+}
+#video {
+}
+
+.questions {
+  border: 3px dotted steelBlue;
+  width:45%;
+  padding:3px;
+  margin:5px;
+  
+}
+
+.work { 
+ float: left; 
+ width: 46%; 
+ height: 90px;
+ margin:5px;
+ padding:10px;
+ background-color:#EBEFF9;
+}
+
+.work_pic {
+  float:right;
+}
+.work_info {
+  float:left;
+}
+ 
+
 #notification { 
  border: 5px solid #9c9; 
  background-color: #cfc; 
  padding: 5px; 
- margin: 10px 0; 
+ margin: 10px 0;
+ display:inline-block;
+}
+
+.fieldWithErrors { 
+ border: 5px solid #f66;
+}
+
+#survey {
+  padding:10px;
 }
 
 #survey ul {
-	list-style:none;
+	list-style:none;	
 }
-.fieldWithErrors { 
- border: 5px solid #f66;
- width:79%;
+
+#survey h3 {
+	margin:0px;	
 }
+
 #center {
 	background-color:lightgrey;
 	border: 4px solid darkgrey;
+	width: 500px;
+	margin: 0 auto;
 }
-
-#center li li {
-	display:inline;
-	padding-right:20px;
-}
-
-#center h4 li {
-	display:inline;
-	text-style:underline, bold;
-	padding-right:5px;
-}
-
-
 
 #hor-minimalist-a th {
 border-bottom: 2px solid #6678B1;
 color: #003399;
-font-size: 14px;
+text-align: center;
 font-weight: normal;
 padding: 10px 8px;
+
 }
 
 #hor-minimalist-a {
 	margin-bottom: 0.5em;
 }
+
 #hor-minimalist-a tbody td {
 	color: #666699;
 	padding: 9px 8px 0;
+	text-align: center;
 }
+
 #hor-minimalist-a .odd {
 	-moz-background-clip:border;
 	-moz-background-inline-policy:continuous;
 	-moz-background-origin:padding;
-background:#E8EDFF none repeat scroll 0 0;
+  background:#E8EDFF none repeat scroll 0 0;
+}
+
+#hor-minimalist-a .first {
+	border-right: 2px solid #666699;
+	background:steelBlue;
+	color:white;
+
 }
 
 #hor-minimalist-a tbody {

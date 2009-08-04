@@ -1,9 +1,12 @@
 class ResultsController < ApplicationController
-  def show
+  
+	def show
+	
   end
 
   def new
 		@result = Result.new
+		@work=Work.find(params[:work_id])
   end
 
   def create
@@ -14,10 +17,9 @@ class ResultsController < ApplicationController
 			flash[:notice] = 'Result successfully submitted'
 			redirect_to work_path(@work.id)
 		else
-			flash[:error] = 'error@@!'
+			flash[:error] = 'error@@==!'
 			render :action => 'new'
-		end
-		
+		end		
  end
 
   def index
