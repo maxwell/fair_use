@@ -1,6 +1,6 @@
 class Result < ActiveRecord::Base
 	belongs_to :work, :counter_cache => true
-	validates_presence_of :q1, :q2, :q3, :q4, :q5, :q6
+	validates_presence_of :q1, :q2, :q3, :q4, :q5, :q6, :q7
 	before_save :compute
 	
 	protected

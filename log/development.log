@@ -27678,3 +27678,1093 @@ Rendered works/_work (0.4ms)
 Rendered works/_work (0.3ms)
 Rendered works/_work (0.3ms)
 Completed in 38ms (View: 29, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=3]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 17:52:20) [GET]
+  [4;36;1mWork Load (12.2ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (16.0ms)
+Rendered works/_work (0.6ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 201ms (View: 172, DB: 12 2 queries) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateWorks (20090723020148)
+Migrating to CreateResults (20090723020408)
+Migrating to AddCounterCacheToWorks (20090728001623)
+Migrating to AddFinalToResults (20090730031017)
+Migrating to CreateUsers (20090801051759)
+Migrating to AddThumbAndVideoUrlToWork (20090802195623)
+Migrating to AddQ7toResults (20090804215901)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mALTER TABLE "results" ADD "q7" integer DEFAULT 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090804215901')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("results")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("works")[0m
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 18:04:07) [GET]
+  Parameters: {"id"=>"24-vimeo-test"}
+  [4;35;1mWork Load (0.5ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering works/show
+Completed in 155ms (View: 120, DB: 1 1 queries) | 200 OK [http://0.0.0.0/works/24-vimeo-test]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 18:04:13) [GET]
+  Parameters: {"id"=>"21-michael-jackson-is-dead"}
+  [4;36;1mWork Load (24.4ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 21) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.5ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 21) ORDER BY id DESC[0m
+
+ActionView::TemplateError (undefined method `q7s' for #<Result:0x2386894>) on line #10 of app/views/results/_result.html.erb:
+7:   <td><%= result.q4%></td>
+8:   <td class="odd"><%= result.q5%></td>
+9:   <td><%= result.q6%></td>
+10:   <td class="odd"><%= result.q7s %>
+11:   <td><%= result.created_at.to_formatted_s(:short)%></td>
+12: </tr>
+
+    app/views/results/_result.html.erb:10
+    app/views/works/show.html.erb:46
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 18:04:20) [GET]
+  Parameters: {"id"=>"21-michael-jackson-is-dead"}
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 21) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.6ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 21) ORDER BY id DESC[0m
+Rendered results/_result (209.2ms)
+Rendered results/_result (0.3ms)
+Completed in 238ms (View: 230, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/21-michael-jackson-is-dead]
+
+
+Processing ResultsController#new (for 127.0.0.1 at 2009-08-04 18:04:30) [GET]
+  Parameters: {"work_id"=>"21-michael-jackson-is-dead"}
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 21) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 43ms (View: 32, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/21-michael-jackson-is-dead/results/new]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 18:04:39) [POST]
+  Parameters: {"result"=>{"q1"=>"10", "q2"=>"10", "q3"=>"10", "q4"=>"5", "q5"=>"-5", "q6"=>"-10", "q7"=>"-10"}, "authenticity_token"=>"aEuNwDyxA6nKN8UTdCmG/R3OdaEINff/Sl6JtHVDw5E=", "work_id"=>"21-michael-jackson-is-dead"}
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 21) [0m
+  [4;36;1mResult Create (5.7ms)[0m   [0;1mINSERT INTO "results" ("q1", "final", "q2", "updated_at", "q3", "q4", "q5", "q6", "q7", "count", "work_id", "created_at") VALUES(10, 20, 10, '2009-08-04 22:04:39', 10, 5, -5, -10, -10, 0, 21, '2009-08-04 22:04:39')[0m
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 21) [0m
+  [4;36;1mWork Update (0.1ms)[0m   [0;1mUPDATE "works" SET "results_count" = COALESCE("results_count", 0) + 1 WHERE ("id" = 21) [0m
+Redirected to http://0.0.0.0:3000/works/21
+Completed in 25ms (DB: 6 4 queries) | 302 Found [http://0.0.0.0/works/21-michael-jackson-is-dead/results]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 18:04:39) [GET]
+  Parameters: {"id"=>"21"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 21) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mResult Load (0.6ms)[0m   [0;1mSELECT * FROM "results" WHERE ("results".work_id = 21) ORDER BY id DESC[0m
+Rendered results/_result (4.0ms)
+Rendered results/_result (0.2ms)
+Rendered results/_result (0.4ms)
+Completed in 33ms (View: 24, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/21]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:20:52) [GET]
+  [4;35;1mWork Load (2.7ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.4ms)
+Rendered works/_work (0.6ms)
+Rendered works/_work (0.6ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Completed in 110ms (View: 74, DB: 3 2 queries) | 200 OK [http://0.0.0.0/]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:21:06) [GET]
+  Parameters: {"page"=>"2"}
+  [4;36;1mWork Load (1.4ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 6[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.8ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.4ms)
+Completed in 86ms (View: 79, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=2]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:21:06) [GET]
+  Parameters: {"page"=>"3"}
+  [4;35;1mWork Load (1.5ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 12[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.2ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 26ms (View: 18, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=3]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:21:07) [GET]
+  Parameters: {"page"=>"4"}
+  [4;36;1mWork Load (1.2ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 18[0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.8ms)
+Rendered works/_work (0.4ms)
+Completed in 23ms (View: 16, DB: 1 2 queries) | 200 OK [http://0.0.0.0/?page=4]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:21:11) [GET]
+  Parameters: {"page"=>"3"}
+  [4;36;1mWork Load (1.6ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 12[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.0ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Completed in 25ms (View: 17, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=3]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:21:12) [GET]
+  Parameters: {"page"=>"2"}
+  [4;35;1mWork Load (1.7ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 6[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.8ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 25ms (View: 17, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=2]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 18:21:13) [GET]
+  Parameters: {"page"=>"1"}
+  [4;36;1mWork Load (1.5ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.0ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Completed in 88ms (View: 80, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=1]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 18:21:19) [GET]
+Rendering template within layouts/application
+Rendering works/new
+Completed in 42ms (View: 36, DB: 0 0 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 19:53:20) [GET]
+  Parameters: {"id"=>"24"}
+  [4;36;1mWork Load (0.8ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering works/show
+Completed in 168ms (View: 142, DB: 1 1 queries) | 200 OK [http://0.0.0.0/works/24]
+
+
+Processing ResultsController#new (for 127.0.0.1 at 2009-08-04 19:53:29) [GET]
+  Parameters: {"work_id"=>"24-vimeo-test"}
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 41ms (View: 31, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/24-vimeo-test/results/new]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 19:53:53) [POST]
+  Parameters: {"result"=>{"q1"=>"10", "q2"=>"-10", "q3"=>"-10", "q4"=>"-5", "q5"=>"5", "q6"=>"-10", "q7"=>"-10"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work_id"=>"24-vimeo-test"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+  [4;35;1mResult Create (0.5ms)[0m   [0mINSERT INTO "results" ("q1", "final", "q2", "updated_at", "q3", "q4", "q5", "q6", "q7", "count", "work_id", "created_at") VALUES(10, -20, -10, '2009-08-04 23:53:53', -10, -5, 5, -10, -10, 0, 24, '2009-08-04 23:53:53')[0m
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+  [4;35;1mWork Update (0.1ms)[0m   [0mUPDATE "works" SET "results_count" = COALESCE("results_count", 0) + 1 WHERE ("id" = 24) [0m
+Redirected to http://0.0.0.0:3000/works/24
+Completed in 18ms (DB: 1 4 queries) | 302 Found [http://0.0.0.0/works/24-vimeo-test/results]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 19:53:53) [GET]
+  Parameters: {"id"=>"24"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.4ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 24) ORDER BY id DESC[0m
+Rendered results/_result (222.6ms)
+Completed in 251ms (View: 244, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/24]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 19:54:26) [GET]
+  Parameters: {"page"=>"2"}
+  [4;36;1mWork Load (16.0ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 6[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (14.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.3ms)
+Completed in 66ms (View: 43, DB: 16 2 queries) | 200 OK [http://0.0.0.0/?page=2]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 19:54:27) [GET]
+  Parameters: {"page"=>"3"}
+  [4;35;1mWork Load (1.4ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 12[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.9ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Completed in 24ms (View: 16, DB: 1 2 queries) | 200 OK [http://0.0.0.0/?page=3]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 19:54:30) [GET]
+  Parameters: {"page"=>"4"}
+  [4;36;1mWork Load (1.3ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 18[0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.8ms)
+Rendered works/_work (0.3ms)
+Completed in 21ms (View: 15, DB: 1 2 queries) | 200 OK [http://0.0.0.0/?page=4]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 19:54:32) [GET]
+  Parameters: {"id"=>"6-max"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering works/show
+Completed in 82ms (View: 75, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/6-max]
+
+
+Processing ResultsController#new (for 127.0.0.1 at 2009-08-04 19:54:34) [GET]
+  Parameters: {"work_id"=>"6-max"}
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 26ms (View: 15, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/6-max/results/new]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 19:54:44) [POST]
+  Parameters: {"result"=>{"q1"=>"10", "q2"=>"-10", "q3"=>"10", "q4"=>"-5", "q5"=>"-5", "q6"=>"-10", "q7"=>"10"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work_id"=>"6-max"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 6) [0m
+  [4;35;1mResult Create (0.4ms)[0m   [0mINSERT INTO "results" ("q1", "final", "q2", "updated_at", "q3", "q4", "q5", "q6", "q7", "count", "work_id", "created_at") VALUES(10, -10, -10, '2009-08-04 23:54:44', 10, -5, -5, -10, 10, 0, 6, '2009-08-04 23:54:44')[0m
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 6) [0m
+  [4;35;1mWork Update (0.1ms)[0m   [0mUPDATE "works" SET "results_count" = COALESCE("results_count", 0) + 1 WHERE ("id" = 6) [0m
+Redirected to http://0.0.0.0:3000/works/6
+Completed in 18ms (DB: 1 4 queries) | 302 Found [http://0.0.0.0/works/6-max/results]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 19:54:44) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.4ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 6) ORDER BY id DESC[0m
+Rendered results/_result (3.1ms)
+Completed in 26ms (View: 19, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/6]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 19:55:02) [GET]
+  Parameters: {"page"=>"2"}
+  [4;36;1mWork Load (1.5ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 6[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.7ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.6ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Completed in 24ms (View: 16, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=2]
+
+
+Processing StaticController#help (for 127.0.0.1 at 2009-08-04 19:55:19) [GET]
+Rendering template within layouts/application
+Rendering static/help
+Completed in 90ms (View: 89, DB: 0 0 queries) | 200 OK [http://0.0.0.0/help]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 19:55:23) [GET]
+Rendering template within layouts/application
+Rendering works/new
+Completed in 23ms (View: 17, DB: 0 0 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:09:24) [GET]
+  [4;35;1mWork Load (1.4ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.0ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Completed in 24ms (View: 16, DB: 2 2 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:15:17) [GET]
+  [4;36;1mWork Load (1.4ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (4.1ms)
+Rendered works/_work (0.7ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (1.3ms)
+Rendered works/_work (1.3ms)
+Completed in 37ms (View: 29, DB: 2 2 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 22:16:51) [GET]
+Rendering template within layouts/application
+Rendering works/new
+Completed in 18ms (View: 12, DB: 0 0 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#create (for 127.0.0.1 at 2009-08-04 22:23:50) [POST]
+  Parameters: {"authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work"=>{"name"=>"jimmy's chicken shack", "submitter"=>"John", "url"=>"http://www.youtube.com/watch?v=SUNmLuNdiL8"}}
+  [4;35;1mWork Create (0.5ms)[0m   [0mINSERT INTO "works" ("name", "updated_at", "submitter", "url", "results_count", "embed_url", "created_at", "thumb_url") VALUES('jimmy''s chicken shack', '2009-08-05 02:23:50', 'John', 'http://www.youtube.com/watch?v=SUNmLuNdiL8', 0, '<object width=''300'' height=''169''><param name=''movie'' value=''http://www.youtube.com/v/SUNmLuNdiL8&f=videos&app=youtube_gdata''></param><param name=''allowFullScreen'' value=''true''></param><param name=''allowscriptaccess'' value=''always''></param><embed src=''http://www.youtube.com/v/SUNmLuNdiL8&f=videos&app=youtube_gdata'' type=''application/x-shockwave-flash'' allowscriptaccess=''always'' allowfullscreen=''true'' width=''300'' height=''169''></embed></object>', '2009-08-05 02:23:50', 'http://i.ytimg.com/vi/SUNmLuNdiL8/2.jpg')[0m
+Redirected to http://0.0.0.0:3000/works/25-jimmy-s-chicken-shack
+Completed in 338ms (DB: 0 1 queries) | 302 Found [http://0.0.0.0/works]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 22:23:50) [GET]
+  Parameters: {"id"=>"25-jimmy-s-chicken-shack"}
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering works/show
+Completed in 39ms (View: 28, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/25-jimmy-s-chicken-shack]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:24:04) [GET]
+  [4;35;1mWork Load (1.4ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.2ms)
+Rendered works/_work (0.7ms)
+Rendered works/_work (0.7ms)
+Rendered works/_work (0.9ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.3ms)
+Completed in 27ms (View: 19, DB: 2 2 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 22:24:45) [GET]
+  Parameters: {"id"=>"25"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering works/show
+Completed in 21ms (View: 15, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/25]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 22:25:29) [GET]
+  Parameters: {"id"=>"25"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering works/show
+Completed in 91ms (View: 85, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/25]
+
+
+Processing ResultsController#new (for 127.0.0.1 at 2009-08-04 22:25:43) [GET]
+  Parameters: {"work_id"=>"25-jimmy-s-chicken-shack"}
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 27ms (View: 16, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/25-jimmy-s-chicken-shack/results/new]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 22:38:49) [POST]
+  Parameters: {"result"=>{"q1"=>"10"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work_id"=>"25-jimmy-s-chicken-shack"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 29ms (View: 12, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/25-jimmy-s-chicken-shack/results]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 22:39:22) [POST]
+  Parameters: {"result"=>{"q1"=>"10"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work_id"=>"25-jimmy-s-chicken-shack"}
+  [4;36;1mWork Load (0.5ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 38ms (View: 17, DB: 1 1 queries) | 200 OK [http://0.0.0.0/works/25-jimmy-s-chicken-shack/results]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 22:39:25) [POST]
+  Parameters: {"result"=>{"q1"=>"10"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work_id"=>"25-jimmy-s-chicken-shack"}
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering results/new
+Completed in 32ms (View: 13, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/25-jimmy-s-chicken-shack/results]
+
+
+Processing ResultsController#create (for 127.0.0.1 at 2009-08-04 22:39:52) [POST]
+  Parameters: {"result"=>{"q1"=>"10", "q2"=>"-10", "q3"=>"10", "q4"=>"5", "q5"=>"-5", "q6"=>"-10", "q7"=>"-10"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg=", "work_id"=>"25-jimmy-s-chicken-shack"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+  [4;35;1mResult Create (0.4ms)[0m   [0mINSERT INTO "results" ("q1", "final", "q2", "updated_at", "q3", "q4", "q5", "q6", "q7", "count", "work_id", "created_at") VALUES(10, -10, -10, '2009-08-05 02:39:52', 10, 5, -5, -10, -10, 0, 25, '2009-08-05 02:39:52')[0m
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+  [4;35;1mWork Update (0.1ms)[0m   [0mUPDATE "works" SET "results_count" = COALESCE("results_count", 0) + 1 WHERE ("id" = 25) [0m
+Redirected to http://0.0.0.0:3000/works/25
+Completed in 19ms (DB: 1 4 queries) | 302 Found [http://0.0.0.0/works/25-jimmy-s-chicken-shack/results]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 22:39:52) [GET]
+  Parameters: {"id"=>"25"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.4ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 25) ORDER BY id DESC[0m
+Rendered results/_result (3.0ms)
+Completed in 26ms (View: 19, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/25]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:42:47) [GET]
+  [4;36;1mWork Load (1.6ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.1ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Completed in 26ms (View: 17, DB: 2 2 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:42:51) [GET]
+  Parameters: {"page"=>"2"}
+  [4;35;1mWork Load (1.5ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 6[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.8ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Completed in 24ms (View: 16, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=2]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:42:52) [GET]
+  Parameters: {"page"=>"3"}
+  [4;36;1mWork Load (1.6ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 12[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.9ms)
+Rendered works/_work (0.6ms)
+Rendered works/_work (0.6ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 25ms (View: 17, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=3]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 22:42:53) [GET]
+  Parameters: {"page"=>"4"}
+  [4;35;1mWork Load (1.3ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 18[0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.8ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.3ms)
+Completed in 22ms (View: 16, DB: 1 2 queries) | 200 OK [http://0.0.0.0/?page=4]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 22:42:55) [GET]
+  Parameters: {"id"=>"5-dan"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mResult Load (0.5ms)[0m   [0;1mSELECT * FROM "results" WHERE ("results".work_id = 5) ORDER BY id DESC[0m
+Rendered results/_result (2.9ms)
+Rendered results/_result (0.2ms)
+Rendered results/_result (0.2ms)
+Completed in 25ms (View: 19, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/5-dan]
+  [4;36;1mWork Load (10.0ms)[0m   [0;1mSELECT * FROM "works" LIMIT 1[0m
+  [4;35;1mWork Update (0.4ms)[0m   [0mUPDATE "works" SET "submitter" = 'John Randall', "updated_at" = '2009-08-05 03:11:20' WHERE "id" = 5[0m
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:11:36) [GET]
+  Parameters: {"id"=>"5-dan"}
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.7ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 5) ORDER BY id DESC[0m
+Rendered results/_result (165.7ms)
+Rendered results/_result (0.3ms)
+Rendered results/_result (0.2ms)
+Completed in 325ms (View: 317, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/5-dan]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:11:47) [GET]
+  [4;36;1mWork Load (106.1ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (14.2ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 171ms (View: 57, DB: 106 2 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:11:50) [GET]
+  Parameters: {"page"=>"4"}
+  [4;35;1mWork Load (1.3ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 18[0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.8ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 26ms (View: 19, DB: 1 2 queries) | 200 OK [http://0.0.0.0/?page=4]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:12:54) [GET]
+  Parameters: {"page"=>"4"}
+  [4;35;1mWork Load (1.4ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 18[0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.9ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+Completed in 23ms (View: 16, DB: 2 2 queries) | 200 OK [http://0.0.0.0/?page=4]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:12:56) [GET]
+  Parameters: {"id"=>"5-dan"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mResult Load (0.6ms)[0m   [0;1mSELECT * FROM "results" WHERE ("results".work_id = 5) ORDER BY id DESC[0m
+Rendered results/_result (3.4ms)
+Rendered results/_result (0.2ms)
+Rendered results/_result (0.2ms)
+Completed in 49ms (View: 42, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/5-dan]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:13:28) [GET]
+  Parameters: {"id"=>"5-dan"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mResult Load (0.6ms)[0m   [0;1mSELECT * FROM "results" WHERE ("results".work_id = 5) ORDER BY id DESC[0m
+Rendered results/_result (2.9ms)
+Rendered results/_result (0.2ms)
+Rendered results/_result (0.2ms)
+Completed in 29ms (View: 22, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/5-dan]
+
+
+Processing StaticController#help (for 127.0.0.1 at 2009-08-04 23:15:58) [GET]
+Rendering template within layouts/application
+Rendering static/help
+Completed in 27ms (View: 25, DB: 0 0 queries) | 200 OK [http://0.0.0.0/help]
+
+
+Processing StaticController#directions (for 127.0.0.1 at 2009-08-04 23:16:00) [GET]
+Rendering template within layouts/application
+Rendering static/directions
+Completed in 16ms (View: 15, DB: 0 0 queries) | 200 OK [http://0.0.0.0/directions]
+
+
+Processing StaticController#about (for 127.0.0.1 at 2009-08-04 23:16:01) [GET]
+Rendering template within layouts/application
+Rendering static/about
+Completed in 16ms (View: 14, DB: 0 0 queries) | 200 OK [http://0.0.0.0/about]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 23:16:15) [GET]
+Rendering template within layouts/application
+Rendering works/new
+Completed in 22ms (View: 16, DB: 0 0 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:16:17) [GET]
+  [4;35;1mWork Load (1.5ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (1.9ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+Completed in 24ms (View: 17, DB: 2 2 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-08-04 23:16:32) [GET]
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 85ms (View: 14, DB: 0 0 queries) | 200 OK [http://0.0.0.0/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-08-04 23:16:34) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"maxwell", "password"=>"monkey"}, "authenticity_token"=>"VroeEow0YPcbGPh38vH7uu7hCQglJqSXB8+EU66yeOg="}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'maxwell') LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 155ms (DB: 0 1 queries) | 302 Found [http://0.0.0.0/user_sessions]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:16:34) [GET]
+  [4;35;1mWork Load (1.5ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (6.4ms)
+Rendered works/_work (0.7ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.6ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 101ms (View: 92, DB: 2 3 queries) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-08-04 23:16:38) [GET]
+  Parameters: {"id"=>"current"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (14.2ms)
+Completed in 52ms (View: 37, DB: 0 1 queries) | 200 OK [http://0.0.0.0/users/current/edit]
+
+
+Processing StaticController#help (for 127.0.0.1 at 2009-08-04 23:18:43) [GET]
+Rendering template within layouts/application
+Rendering static/help
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 14, DB: 0 1 queries) | 200 OK [http://0.0.0.0/help]
+
+
+Processing StaticController#directions (for 127.0.0.1 at 2009-08-04 23:18:44) [GET]
+Rendering template within layouts/application
+Rendering static/directions
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 14, DB: 0 1 queries) | 200 OK [http://0.0.0.0/directions]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 23:18:45) [GET]
+Rendering template within layouts/application
+Rendering works/new
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 23ms (View: 16, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:18:55) [GET]
+  [4;35;1mWork Load (1.4ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.0ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 28ms (View: 20, DB: 2 3 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 23:19:06) [GET]
+Rendering template within layouts/application
+Rendering works/new
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 22ms (View: 16, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing StaticController#help (for 127.0.0.1 at 2009-08-04 23:19:08) [GET]
+Rendering template within layouts/application
+Rendering static/help
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 16ms (View: 14, DB: 0 1 queries) | 200 OK [http://0.0.0.0/help]
+
+
+Processing StaticController#directions (for 127.0.0.1 at 2009-08-04 23:19:09) [GET]
+Rendering template within layouts/application
+Rendering static/directions
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 15ms (View: 13, DB: 0 1 queries) | 200 OK [http://0.0.0.0/directions]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:19:11) [GET]
+  [4;36;1mWork Load (1.4ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.0ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 27ms (View: 19, DB: 2 3 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 23:19:22) [GET]
+Rendering template within layouts/application
+Rendering works/new
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 21ms (View: 14, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:19:28) [GET]
+  [4;35;1mWork Load (1.4ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.2ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 29ms (View: 20, DB: 2 3 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:19:31) [GET]
+  Parameters: {"id"=>"23-ted"}
+  [4;35;1mWork Load (0.3ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 23) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 27ms (View: 20, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/23-ted]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:20:05) [GET]
+  Parameters: {"id"=>"22-antique-apes"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 22) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 24ms (View: 17, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/22-antique-apes]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:29:33) [GET]
+  Parameters: {"id"=>"24-vimeo-test"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering works/show
+ERROR: compiling _run_erb_app47views47works47show46html46erb RAISED compile error
+/Users/maxwell/Sites/FairUse/app/views/works/show.html.erb:6: syntax error, unexpected $undefined
+...y: "; @output_buffer.concat((@ work.submitter ).to_s); @outp...
+                              ^
+Function body:           def _run_erb_app47views47works47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ;  title @work.name ; @output_buffer.concat "\n"
+@output_buffer.concat "<h2>"; @output_buffer.concat((link_to @work.name, @work.url ).to_s); @output_buffer.concat " </h2>\n"
+@output_buffer.concat "<div id=\"work_info\" class = \"span-12\">\n"
+@output_buffer.concat "  <h3>source url: "; @output_buffer.concat((@work.url).to_s); @output_buffer.concat "</h3>\n"
+@output_buffer.concat "  <h3>fair use score: ??????"; @output_buffer.concat(( ).to_s); @output_buffer.concat "</h3>\n"
+@output_buffer.concat "  <h3>Submitted by: "; @output_buffer.concat((@ work.submitter ).to_s); @output_buffer.concat "</h3>\n"
+@output_buffer.concat "  <p>Number of Surveys completed for this item: "; @output_buffer.concat(( @work.results_count ).to_s); @output_buffer.concat " </p>\n"
+@output_buffer.concat "  <div id=\"button\">\n"
+@output_buffer.concat "    <a class=\"button\" href=\""; @output_buffer.concat(( new_work_result_path(@work)).to_s); @output_buffer.concat "\" >\n"
+@output_buffer.concat "    \t  <img src=\"/stylesheets/blueprint/plugins/buttons/icons/tick.png\" alt=\"\"/> \n"
+@output_buffer.concat "    \t    Assess Fair Use\n"
+@output_buffer.concat "    </a>\n"
+@output_buffer.concat "  </div>\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<div class=\"span-12 last\">\n"
+@output_buffer.concat "  ";  if !@work.embed_url.nil? ; @output_buffer.concat "\n"
+@output_buffer.concat "    <div id = \"video\" class=\"prepend-3\">\n"
+@output_buffer.concat "      "; @output_buffer.concat(( @work.embed_url).to_s); @output_buffer.concat " \n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "  ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat " \n"
+@output_buffer.concat "<div class= \"span-24 last\">\n"
+@output_buffer.concat "  <div id = \"center\">\n"
+@output_buffer.concat "    ";  if @work.results.empty? ; @output_buffer.concat "\n"
+@output_buffer.concat "    <em>No Results for this work yet!</em>\n"
+@output_buffer.concat "    ";  else ; @output_buffer.concat "\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "    <table id = \"hor-minimalist-a\" summary=\"results for this work\">\n"
+@output_buffer.concat "      <thead>\n"
+@output_buffer.concat "        <tr>\n"
+@output_buffer.concat "          <th scope = \"col\">id</th>\n"
+@output_buffer.concat "          <th scope = \"col\">result</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 1</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 2</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 3</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 4</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 5</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 6</th>\n"
+@output_buffer.concat "          <th scope = \"col\">q 7</th>\n"
+@output_buffer.concat "          <th scope = \"col\">created at</th>\n"
+@output_buffer.concat "        </tr>\n"
+@output_buffer.concat "      </thead>\n"
+@output_buffer.concat "      <tbody>\n"
+@output_buffer.concat "        "; @output_buffer.concat(( render :partial => 'results/result',
+        :collection => @work.results.all ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "        ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "      </tbody>\n"
+@output_buffer.concat "    </table>\n"
+@output_buffer.concat "  </div>\n"
+@output_buffer.concat "</div>\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/maxwell/Sites/FairUse/app/views/works/show.html.erb:56:in `compile!'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:941:in `render_without_benchmark'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render_without_query_stats'
+/Users/maxwell/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/maxwell/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/maxwell/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render_without_query_stats'
+/Users/maxwell/Sites/FairUse/vendor/plugins/query_stats/lib/query_stats/labeler.rb:22:in `render'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1322:in `default_render'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1328:in `perform_action_without_filters'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/maxwell/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/maxwell/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Users/maxwell/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action_without_query_stats'
+/Users/maxwell/Sites/FairUse/vendor/plugins/query_stats/lib/query_stats/logger.rb:17:in `perform_action'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `process'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Users/maxwell/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/maxwell/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/Users/maxwell/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/maxwell/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Users/maxwell/.gem/ruby/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/maxwell/Sites/FairUse/app/views/works/show.html.erb:6: syntax error, unexpected $undefined
+...y: "; @output_buffer.concat((@ work.submitter ).to_s); @outp...
+                              ^) on line #6 of app/views/works/show.html.erb:
+3: <div id="work_info" class = "span-12">
+4:   <h3>source url: <%=@work.url%></h3>
+5:   <h3>fair use score: ??????<%= %></h3>
+6:   <h3>Submitted by: <%=@ work.submitter %></h3>
+7:   <p>Number of Surveys completed for this item: <%= @work.results_count %> </p>
+8:   <div id="button">
+9:     <a class="button" href="<%= new_work_result_path(@work)%>" >
+
+    app/views/works/show.html.erb:56:in `compile!'
+
+Rendered rescues/_trace (107.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:29:55) [GET]
+  Parameters: {"id"=>"24-vimeo-test"}
+  [4;36;1mWork Load (0.4ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 24) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mResult Load (0.4ms)[0m   [0mSELECT * FROM "results" WHERE ("results".work_id = 24) ORDER BY id DESC[0m
+Rendered results/_result (3.1ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 34ms (View: 26, DB: 1 3 queries) | 200 OK [http://0.0.0.0/works/24-vimeo-test]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:30:11) [GET]
+  Parameters: {"id"=>"25-jimmy-s-chicken-shack"}
+  [4;35;1mWork Load (0.2ms)[0m   [0mSELECT * FROM "works" WHERE ("works"."id" = 25) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;36;1mResult Load (0.4ms)[0m   [0;1mSELECT * FROM "results" WHERE ("results".work_id = 25) ORDER BY id DESC[0m
+Rendered results/_result (2.8ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 29ms (View: 21, DB: 1 3 queries) | 200 OK [http://0.0.0.0/works/25-jimmy-s-chicken-shack]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 23:30:59) [GET]
+Rendering template within layouts/application
+Rendering works/new
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 22ms (View: 16, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:31:43) [GET]
+  [4;35;1mWork Load (1.6ms)[0m   [0mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.2ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.4ms)
+Rendered works/_work (0.4ms)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 29ms (View: 20, DB: 2 3 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#new (for 127.0.0.1 at 2009-08-04 23:31:56) [GET]
+Rendering template within layouts/application
+Rendering works/new
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 21ms (View: 15, DB: 0 1 queries) | 200 OK [http://0.0.0.0/works/new]
+
+
+Processing WorksController#index (for 127.0.0.1 at 2009-08-04 23:31:59) [GET]
+  [4;36;1mWork Load (1.4ms)[0m   [0;1mSELECT * FROM "works" ORDER BY created_at DESC LIMIT 6 OFFSET 0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "works" [0m
+Rendered works/_work (2.2ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.5ms)
+Rendered works/_work (0.3ms)
+Rendered works/_work (0.3ms)
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 28ms (View: 20, DB: 2 3 queries) | 200 OK [http://0.0.0.0/works]
+
+
+Processing WorksController#show (for 127.0.0.1 at 2009-08-04 23:32:00) [GET]
+  Parameters: {"id"=>"23-ted"}
+  [4;36;1mWork Load (0.2ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 23) [0m
+Rendering template within layouts/application
+Rendering works/show
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 23ms (View: 17, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/23-ted]
+
+
+Processing ResultsController#new (for 127.0.0.1 at 2009-08-04 23:32:01) [GET]
+  Parameters: {"work_id"=>"23-ted"}
+  [4;36;1mWork Load (0.3ms)[0m   [0;1mSELECT * FROM "works" WHERE ("works"."id" = 23) [0m
+Rendering template within layouts/application
+Rendering results/new
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 140ms (View: 129, DB: 1 2 queries) | 200 OK [http://0.0.0.0/works/23-ted/results/new]

@@ -37,22 +37,26 @@
       </div>
   
       <div class="questions">
-        <h3>4. Nature of the original copyrighted work</h3>
+        <h3>4a. Nature of the original copyrighted work</h3>
         <ul>
           <li><%= radio_button("result", "q4", 5)%>Published</li>
           <li><%= radio_button("result", "q4", -5)%>Unpublished</li>
-          <li><%= radio_button("result", "q4", -5)%>Creative</li>
-          <li><%= radio_button("result", "q4", 5)%>Not Creative</li>
+        </ul>
+        
+        <h3>4b. Nature of the original copyrighted work</h3>
+        <ul>
+          <li><%= radio_button("result", "q5", -5)%>Creative</li>
+          <li><%= radio_button("result", "q5", 5)%>Not Creative</li>
         </ul>
       </div>
 
       <div class="questions">
         <h3>5. Amount of the original work being used in new work</h3>
         <ul>
-          <li><%= radio_button("result", "q5", -10)%>Most of it</li>
-          <li><%= radio_button("result", "q5", -10)%>Just the essential parts</li>
-          <li><%= radio_button("result", "q5", -10)%>Most of it and the essential parts</li>
-          <li><%= radio_button("result", "q5", 10)%>
+          <li><%= radio_button("result", "q6", -10)%>Most of it</li>
+          <li><%= radio_button("result", "q6", -10)%>Just the essential parts</li>
+          <li><%= radio_button("result", "q6", -10)%>Most of it and the essential parts</li>
+          <li><%= radio_button("result", "q6", 10)%>
             Neither most of the copyrighted work nor the essential parts</li>
         </ul>
       </div>
@@ -60,9 +64,9 @@
       <div class="questions">
         <h3>6. Financial impact of new work</h3>
         <ul>
-          <li><%= radio_button("result", "q6", -10)%>
+          <li><%= radio_button("result", "q7", -10)%>
             Damages a current or potential market for original copyrighted work</li>
-          <li><%= radio_button("result", "q6", 10)%>
+          <li><%= radio_button("result", "q7", 10)%>
             Does not damage a current or potential market for original copyrighted work</li>
         </ul>
       </div>
