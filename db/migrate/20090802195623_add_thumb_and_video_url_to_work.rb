@@ -1,7 +1,7 @@
 class AddThumbAndVideoUrlToWork < ActiveRecord::Migration
   def self.up
-    add_column :works, :embed_url, :string
-    add_column :works, :thumb_url, :string
+    add_column :works, :embed_url, :text
+    add_column :works, :thumb_url, :text
     
     Work.find(:all).each do |s|
         @video=UnvlogIt.new(s.url)

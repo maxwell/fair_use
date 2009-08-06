@@ -1,0 +1,49 @@
+<% title @work.name %>
+<div class = "span-12">
+  <h1><%=link_to @work.name, @work.url %></h1>
+  <h3>fair use score: <%= %></h3>
+  <p>Number of Surveys completed for this item: <%= @work.results_count %> </p>
+</div>
+<div class="span-12 last">
+  
+  <a class="button" href="<%= new_work_result_path(@work)%>" >
+  	  <img src="/stylesheets/blueprint/plugins/buttons/icons/tick.png" alt=""/> 
+  	    Assess Fair Use
+  </a>
+
+  
+</div>
+  
+<div id = "center" class= "span-24 last">
+
+  <% if @work.results.empty? %>
+  <em>No Results for this work yet!</em>
+  <% else %>
+  
+  
+  <table id = "hor-minimalist-a" summary="results for this work">
+    <thead>
+      <tr>
+        <th scope = "col">id</th>
+        <th scope = "col">result</th>
+        <th scope = "col">q 1</th>
+        <th scope = "col">q 2</th>
+        <th scope = "col">q 3</th>
+        <th scope = "col">q 4</th>
+        <th scope = "col">q 5</th>
+        <th scope = "col">q 6</th>
+        <th scope = "col">created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => 'results/result',
+      :collection => @work.results.all %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<p>
+
+</p>
+
