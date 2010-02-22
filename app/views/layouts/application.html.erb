@@ -4,10 +4,10 @@
  xml:lang="en" lang="en"> 
 <head> 
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-  <title>the berkman center for internet & society fair use tool -  <%= yield(:title) || "home" %></title> 
+  <title>the berkman center for internet & society fair use tool - <%= yield(:title) || "home" %></title> 
   <%= stylesheet_link_tag 'blueprint/screen' %> 
   <%= stylesheet_link_tag 'style' %>
-  <%= javascript_include_tag :defaults %> 
+  <%= javascript_include_tag 'jquery' %> 
 </head>
 <body> 
   
@@ -34,10 +34,14 @@
       </div>
     
      
-         <div class = "span-24 last">
-            <% unless flash[:notice].blank? %>
-              <div id="notification"><%= flash[:notice] %> </div>
-            <% end %>
+         <div class = "span-24 last">         
+            <% [:notice, :error].each do |key| %>
+                    <% if flash[key] %>
+                    <div class="<%= key %>" id="flash">
+                      <%= flash[key] %>
+                    </div>
+                    <% end %>
+                  <% end %>
          </div
         
         <%= yield %> 

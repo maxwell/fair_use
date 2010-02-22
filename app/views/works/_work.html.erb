@@ -1,4 +1,5 @@
-<% div_for(work) do %>
+<% for work in @works %>
+<div class="work"> 
   <div class = "work_info">
     <ul>
       <li><%= link_to work.name, work %></li>
@@ -17,5 +18,9 @@
                             work_path(work.id) %>
     <% end %>
   </div>
-  
+</div
 <% end %>
+
+<div class= "pagination" style="clear:both; display:block;">
+  <%= will_paginate @works %>
+</div>

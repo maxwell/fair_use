@@ -1,6 +1,8 @@
 class WorksController < ApplicationController 
 	def index
-		fetch_stories 'created_at DESC'
+		@works = Work.paginate 	:page  => params[:page], 
+														:order  => 'created_at DESC', 
+														:per_page  => 6
   end
 
   def new
@@ -19,17 +21,13 @@ class WorksController < ApplicationController
 
   def show
 			@work = Work.find(params[:id])
+			@results = @work.results.all.paginate :page  => params[:page], 
+  														              :order  => 'created_at DESC', 
+  														              :per_page  => 6
   end
 	
 	protected
   def destroy
   end
 
-	
-	def fetch_stories(conditions)
-		@works = Work.paginate 	:page  => params[:page], 
-														:order  => conditions, 
-														:per_page  => 6
-	end
-	
 end

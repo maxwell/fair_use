@@ -15,15 +15,12 @@ Dir.glob(videolibs).each {|file| require file}
 
 class UnvlogIt
   
-  #this function has been stripped of throwing errors, so it just wont work
-  #there prob is a more gracefull way to do this idk - maxwell
   def initialize(url=nil, options={})
     raise ArgumentError.new("We need a video url") if url.blank?
     @object ||= "vg_#{get_domain(url).downcase}".camelize.constantize.new(url, options) rescue nil
-                return if @object.nil?
-                unless @object.instance_variable_get("@details").nil? || 
-                  !@object.instance_variable_get("@details").respond_to?("noembed")
-                   return if @object.instance_variable_get("@details").noembed
+                 return if @object.nil?
+                unless @object.instance_variable_get("@details").nil? || !@object.instance_variable_get("@details").respond_to?("noembed")
+               return if @object.instance_variable_get("@details").noembed
                 end
   end
   

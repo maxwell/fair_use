@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090804215901) do
+ActiveRecord::Schema.define(:version => 20090809181229) do
 
   create_table "results", :force => true do |t|
     t.integer  "q1"
@@ -42,9 +42,17 @@ ActiveRecord::Schema.define(:version => 20090804215901) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "results_count", :default => 0
+    t.integer  "results_count",  :default => 0
     t.string   "embed_url"
     t.string   "thumb_url"
+    t.integer  "positive_count", :default => 0
+    t.integer  "q1",             :default => 0
+    t.integer  "q2",             :default => 0
+    t.integer  "q3",             :default => 0
+    t.integer  "q4",             :default => 0
+    t.integer  "q5",             :default => 0
+    t.integer  "q6",             :default => 0
+    t.integer  "q7",             :default => 0
   end
 
 end

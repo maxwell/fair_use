@@ -14,8 +14,12 @@ class ResultsController < ApplicationController
 		@result=@work.results.build(params[:result])
 		
 		if @result.save
-			flash[:notice] = 'Result successfully submitted'
-			redirect_to work_path(@work.id)
+		  if @result.final > 0
+		    flash[:notice] = 'Great news, it looks like this is fair use'
+		  else
+			  flash[:error] = 'Bummer City! Looks like this this isn\'t fair use.'
+			end
+			redirect_to work_path(params[:work_id])
 		else
 			flash[:error] = 'error@@==!'
 			render :action => 'new'
@@ -25,10 +29,10 @@ class ResultsController < ApplicationController
   def index
 		
   end
-
-
+	
 protected
   def destory
   end
+  
 
 end

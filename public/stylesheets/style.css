@@ -8,12 +8,18 @@ body {
 li{
 	list-style:none;
 }
+
+
 #content { 
  background-color: #fff; 
  border: 10px solid steelBlue; 
  padding: 10px 10px 20px 10px; 
  overflow: hidden; 
  width:950px;
+ border-radius: 14px;
+ -moz-border-radius: 14px;
+ -webkit-border-radius: 14px;
+ height:auto;
 } 
 * html #content { 
  height: 1%; 
@@ -82,6 +88,9 @@ li{
  margin:5px;
  padding:10px;
  background-color:#EBEFF9;
+ border-radius: 14px;
+ -moz-border-radius: 14px;
+ -webkit-border-radius: 14px;
 }
 
 .work_pic {
@@ -91,10 +100,17 @@ li{
   float:left;
 }
  
-
-#notification { 
+#flash.notice { 
  border: 5px solid #9c9; 
  background-color: #cfc; 
+ padding: 5px; 
+ margin: 10px 0;
+ display:inline-block;
+}
+
+#flash.error { 
+ border: 5px solid #FF3F3F; 
+ background-color: #FFBFBF; 
  padding: 5px; 
  margin: 10px 0;
  display:inline-block;

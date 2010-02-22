@@ -1,6 +1,7 @@
-<h2><%= Work.count %> Works posted so far:</h2>
-<%= render :partial => 'work', :collection => @works %> 
+<%= javascript_include_tag "jquery.ba-url.min", "pagination" %>
 
-<div id="pagination" class="span-24 last">
-  <%= will_paginate @works %>
+<h2><%= Work.count %> Works posted so far:</h2>
+
+<div id ="allworks">
+  <%= render 'work' %> 
 </div>

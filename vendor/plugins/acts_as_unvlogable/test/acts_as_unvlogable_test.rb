@@ -23,7 +23,7 @@ class ActsAsUnvlogableTest < Test::Unit::TestCase
     
     context "with an unsupported url" do
       should "raise an ArgumentError exception" do
-       assert_raise(ArgumentError, "Unsuportdded url or service") { UnvlogIt.new("http://iwannagothere.net/") }
+        assert_raise(ArgumentError, "Unsuported url or service") { UnvlogIt.new("http://iwannagothere.net/") }
       end
     end
     

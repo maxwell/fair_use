@@ -1,12 +1,35 @@
-<tr>
-  <td class="first"><%=result.id%></td>
-  <td class="first"><%=result.final%></td>
-  <td class="odd"><%= result.q1%></td>
-  <td><%= result.q2%></td>
-  <td class="odd"><%= result.q3%></td>
-  <td><%= result.q4%></td>
-  <td class="odd"><%= result.q5%></td>
-  <td><%= result.q6%></td>
-  <td class="odd"><%= result.q7 %>
-  <td><%= result.created_at.to_formatted_s(:short)%></td>
-</tr>
+<table id = "hor-minimalist-a" summary="results for this work">
+  <thead>
+    <tr>
+      <th scope = "col">id</th>
+      <th scope = "col">result</th>
+      <th scope = "col">q 1</th>
+      <th scope = "col">q 2</th>
+      <th scope = "col">q 3</th>
+      <th scope = "col">q 4</th>
+      <th scope = "col">q 5</th>
+      <th scope = "col">q 6</th>
+      <th scope = "col">q 7</th>
+      <th scope = "col">created at</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for result in @results%>
+  <tr>
+    <td class="first"><%=result.id%></td>
+    <td class="first"><%=result.final%></td>
+    <td class="odd"><%= result.q1%></td>
+    <td><%= result.q2%></td>
+    <td class="odd"><%= result.q3%></td>
+    <td><%= result.q4%></td>
+    <td class="odd"><%= result.q5%></td>
+    <td><%= result.q6%></td>
+    <td class="odd"><%= result.q7 %>
+    <td><%= result.created_at.to_formatted_s(:short)%></td>
+  </tr>
+  <% end %>
+    </tbody>
+  </table>
+<div class="pagination">  
+  <%= will_paginate @results %>
+</div>

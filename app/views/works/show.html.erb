@@ -1,3 +1,4 @@
+<%= javascript_include_tag "jquery.ba-url.min", "pagination" %>
 <% title @work.name %>
 <h2><%=link_to @work.name, @work.url %> </h2>
 <div id="work_info" class = "span-12">
@@ -20,33 +21,27 @@
     </div>
   <% end %>
 </div>
- 
+
+
+
+
 <div class= "span-24 last">
+  <div id ="graph">
+    <% if !@work.results.empty? %>
+      <img src=<%= GoogleChart.pie_3d_350x150('yes'=>@work.positive_count, 
+                                              'no' =>@work.results_count-@work.positive_count
+                                              ).to_url %> alt="graph"</img> 
+    <% else %>
+        no results, no graphs!
+    <% end %>
+  </div>
   <div id = "center">
     <% if @work.results.empty? %>
     <em>No Results for this work yet!</em>
     <% else %>
-  
-    <table id = "hor-minimalist-a" summary="results for this work">
-      <thead>
-        <tr>
-          <th scope = "col">id</th>
-          <th scope = "col">result</th>
-          <th scope = "col">q 1</th>
-          <th scope = "col">q 2</th>
-          <th scope = "col">q 3</th>
-          <th scope = "col">q 4</th>
-          <th scope = "col">q 5</th>
-          <th scope = "col">q 6</th>
-          <th scope = "col">q 7</th>
-          <th scope = "col">created at</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render :partial => 'results/result',
-        :collection => @work.results.all %>
-        <% end %>
-      </tbody>
-    </table>
+    <div id = "result_table">
+        <%= render :partial => 'results/result'%>
+    </end>
+    <% end %>
   </div>
 </div>
